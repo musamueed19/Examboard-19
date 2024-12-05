@@ -28,9 +28,13 @@ export default function SectionsTestPage() {
             name="userStatus"
           /> */}
         </div>
+        </div>
 
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          {/* Bulk Delete Button */}
+    </div>
+  );
+}
+
+        {/* <div className="flex flex-col md:flex-row items-center gap-8">
           {records.length > 1 && (
             <BulkDelete
               size={30}
@@ -40,7 +44,6 @@ export default function SectionsTestPage() {
             />
           )}
 
-          {/* Add Button */}
           <Add size={16} setModal={setModal} setType={setType} />
         </div>
       </div>
@@ -80,7 +83,4 @@ export default function SectionsTestPage() {
           userName={userName}
           ids={ids}
         />
-      </Modal>
-    </div>
-  );
-}
+      </Modal> */}
