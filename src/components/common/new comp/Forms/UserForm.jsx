@@ -216,6 +216,7 @@ export default function UserForm({
     console.log(res.data.locations, res.data.designations, res.data.roles);
   }
 
+  // Fetching User data, on update, view.
   async function getUser() {
     let res = await getAll(
       `${process.env.NEXT_PUBLIC_BASE_API_URL}/faculties/${id}`
@@ -245,17 +246,19 @@ export default function UserForm({
       userId: res.data.user.id
     });
   }
-  if (type === "add" || type === "update") {
-    useEffect(() => {
-      getOptions();
-    }, []);
-  }
 
-  if (type === "update" || type === "view") {
-    useEffect(() => {
-      getUser();
+  // Fetch user data, & options on Start.
+  useEffect(() => {
+      if (type === "add" || type === "update") {
+      getOptions();
+    }
     }, []);
-  }
+
+    useEffect(() => {
+      if (type === "update" || type === "view") {
+      getUser();
+    }
+    }, []);
 
   return (
     <form

@@ -1,5 +1,12 @@
 'use client'
 
+import Add from "@/components/common/new comp/Add";
+import BulkDelete from "@/components/common/new comp/BulkDelete";
+import FacultyForm from "@/components/common/new comp/Forms/FacultyForm";
+import Modal from "@/components/common/new comp/Modal";
+import Pagination from "@/components/common/Pagination";
+import FacultyTable from "@/components/Tables/facultyTable";
+
 export default function SectionsTestPage() {
   return (
     <div className="w-full h-full rounded-md py-6 px-4 lg:px-10 lg:py-8 lg:mb-4 flex flex-col gap-6">
