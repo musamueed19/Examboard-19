@@ -97,6 +97,7 @@ export default function ForgotPasswordForm() {
 
 
     focusLossHandler("email", userEmail);
+    console.log(errors.emailError);
 
     if (errors.emailError !== "") return;
 
@@ -117,6 +118,7 @@ export default function ForgotPasswordForm() {
 // Now immediately return, and wait for user to know the error.
         return;
       }
+      return;
 
       // As, we have success, so we will remove server Error message.
       handleErrorChange("serverError", "");
