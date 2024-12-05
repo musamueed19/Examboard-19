@@ -241,17 +241,17 @@ export default function FacultyForm({ setModal, type, id, setRefresh, userName }
     setUserRoles(res.data.user.userRole);
     onChange("role", userRoles.map(role => role.role.name).join(", "))
   }
-  if (type === "add" || type === "update") {
-    useEffect(() => {
+  useEffect(() => {
+      if (type === "add" || type === "update") {
       getOptions();
+    }
     }, []);
-  }
 
-  if (type === "update" || type === "view") {
-    useEffect(() => {
+  useEffect(() => {
+      if (type === "update" || type === "view") {
       getFaculty();
+    }
     }, []);
-  }
 
   return (
     <form
