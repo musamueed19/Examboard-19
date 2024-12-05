@@ -73,12 +73,13 @@ export default function LoginForm() {
     }
   }
 
-  function handleErrorChange(name, value = "") {
-    setErrors({
-      ...errors,
-      [name]: value,
-    })
-  }
+   function handleErrorChange(name, value = "") {
+     setErrors((prevErrors) => ({
+       ...prevErrors,
+       [name]: value,
+     }));
+   }
+
 
   function focusLossHandler(name, value) {
 
@@ -117,6 +118,8 @@ export default function LoginForm() {
     handleErrorChange("serverSuccess", "");
     handleErrorChange("serverError", "");
 
+// Knowing both server side messages.
+    console.log("--- showing server error", errors.serverError, ",server success", errors.serverSuccess);
     
     focusLossHandler("email", loginData.email);
     focusLossHandler("password", loginData.password);
@@ -154,12 +157,13 @@ export default function LoginForm() {
       handleErrorChange("serverSuccess", "Welcome back! " + res.data.user.name);
       // console.log(res.data.user.name);
 
-      console.log(errors.serverError, errors.serverSuccess);
+      // Knowing both server side messages.
+    console.log("--- showing server error", errors.serverError, ",server success", errors.serverSuccess);
 
       // now, after 0.5 second. I will navigate User automatically to the Home ('/') page.
       setTimeout(() => {
         router.push("/");
-      }, 1000);
+      }, 500);
     })
   }
 
@@ -167,12 +171,12 @@ export default function LoginForm() {
     <form onSubmit={submitHandler} className="w-full">
       <div className="flex flex-col gap-10">
         <div className="space-y-3">
-          {(errors.serverError !== "" && errors.serverSuccess === "") && (
+          {errors.serverError !== "" && (
             <p className="bg-red-100/90 font-bold text-red-600 py-2.5 px-4 rounded-md mb-4 flex items-center gap-2">
               <BadgeAlert /> {errors.serverError}
             </p>
           )}
-          {(errors.serverSuccess !== "" && errors.serverError !== "") && (
+          {errors.serverSuccess !== "" && (
             <p className="bg-green-400 py-2.5 px-4 rounded-md mb-4 text-white font-medium flex items-center gap-2">
               <HiMiniCheckBadge size={26} /> {errors.serverSuccess}
             </p>
