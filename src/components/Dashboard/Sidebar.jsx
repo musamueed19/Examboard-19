@@ -17,7 +17,7 @@ export default function Sidebar({ setExpanded, expanded }) {
       className={`hidden md:block bg-slate-100 h-full sticky top-0 text-black overflow-y-auto pb-10 scrollbar-thin scrollbar-thumb-blue-300/50 scrollbar-track-blue-50 scrollbar-corner-blue-700`}
     >
       {/* Sidebar 2nd Inner Container */}
-      <div className="p-2 md:p-5 transition-all duration-200">
+      <div className="p-2 md:py-4 transition-all duration-200">
         {/* Logo & Sidebar Icon section */}
         <div
           className={`flex items-center ${
@@ -60,9 +60,9 @@ export default function Sidebar({ setExpanded, expanded }) {
                   <Link
                     key={index}
                     href={item.href}
-                    className={`relative group flex gap-4 items-end w-full p-1 md:p-2 rounded-md transition-all duration-200 ${
+                    className={`relative group flex gap-4 items-end w-full p-1 md:p-2 rounded-md transition-all duration-200 border-l-4 border-l-transparent ${
                       pathname.includes(item.href) || pathname === item.href
-                        ? "bg-blue-500"
+                        ? "bg-blue-500 border-l-blue-800"
                         : "bg-slate-100 hover:bg-blue-100/90"
                     }`}
                   >
